@@ -1,0 +1,21 @@
+{
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "flags": {
+      "is_alive": true
+    },
+    "type_specific": {
+      "type": "minecraft:player",
+      "stats": [
+        {
+          "type": "minecraft:generic",
+          "stat": "minecraft:health",
+          "value": {
+            "max": 12.0
+          }
+        }
+      ]
+    }
+  }
+}

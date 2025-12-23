@@ -1,0 +1,10 @@
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~ ~ ~ minecraft:campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~ ~ ~ minecraft:soul_campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~1 ~ ~ minecraft:campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~1 ~ ~ minecraft:soul_campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~-1 ~ ~ minecraft:campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~-1 ~ ~ minecraft:soul_campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~ ~ ~1 minecraft:campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~ ~ ~1 minecraft:soul_campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~ ~ ~-1 minecraft:campfire run scoreboard players remove @s foggy.attention 2
+execute as @a[gamemode=!creative,gamemode=!spectator] at @s if block ~ ~ ~-1 minecraft:campfire run scoreboard players remove @s foggy.attention 2

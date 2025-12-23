@@ -1,0 +1,1 @@
+execute as @a[gamemode=!creative,gamemode=!spectator,scores={foggy.attention=10..30,foggy.cooldown=..0}] if score @s foggy.bell_mute matches ..0 run function foggy:manifestations/tier1/ambient_dread_play
