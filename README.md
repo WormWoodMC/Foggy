@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Foggy Banner](https://i.imgur.com/banner-placeholder.png)
+![Foggy Banner](https://static.planetminecraft.com/files/image/minecraft/data-pack/2025/671/19416838-copilot_l.webp)
 
 **Experience true fear in Minecraft**
 
