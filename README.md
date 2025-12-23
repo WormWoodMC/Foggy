@@ -6,7 +6,7 @@
 
 **Experience true fear in Minecraft**
 
-[![Download](https://img.shields.io/badge/Download-Planet%20Minecraft-green)](https://www.planetminecraft.com/data-pack/foggy/)
+[![Download](https://img.shields.io/badge/Download-Planet%20Minecraft-green)](https://www.planetminecraft.com/data-pack/foggy-6804671/)
 [![Version](https://img.shields.io/badge/Version-1.21.1-blue)](https://minecraft.net)
 [![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
 
