@@ -72,12 +72,31 @@ Open the menu:
 - **Intensity** - Low, Medium, or High (for the brave)
 - **Streamer Mode** - Warnings before the scary bits
 - **Volume** - How loud the jump scares hit
+- **Dread multiplier & decay** - Adjust how fast the fog tracks player dread and how quickly it slips away
+- **Fear spread radius** - Choose whether the fog shares dread with tight-knit groups or spreads across the whole party
 
 ### Quick Commands
 ```
-/function foggy:config/streamer/toggle
 /function foggy:config/intensity/high
+/function foggy:config/streamer/toggle
 /function foggy:config/volume/loud
+```
+
+### Dread Commands
+```
+/function foggy:config/dread           # Open the full dread control panel
+/function foggy:config/dread/multiplier_calm|balanced|aggressive
+/function foggy:config/dread/decay_slow|medium|fast
+/function foggy:config/dread/radius_close|normal|wide
+/function foggy:dread/status            # Instant readout of dread totals
+/function foggy:dread/thresholds        # Describe the whisper/nightmare/summon breakpoints
+```
+
+Streamer Mode now shows the current total/player dread on the action bar, so content creators can keep a calm face while the fog builds toward its whispers, nightmares, and final summons.
+
+### Dread Control Shortcuts
+```
+/function foggy:config/dread
 ```
 
 ---
@@ -131,6 +150,12 @@ Want to see what's going on under the hood?
 
 ## 🔄 Version History
 
+### v3.0.0 - CURRENT
+- **NEW**: Comprehensive configuration hub with streamlined intensity, volume, streamer, advanced manifestation, and dread menus plus dedicated help/stats readouts so you can adjust each fear parameter without memorizing commands (@data/foggy/function/config.mcfunction#1-21, @data/foggy/function/config/help.mcfunction#1-15, @data/foggy/function/config/stats.mcfunction#1-14, @data/foggy/function/config/dread.mcfunction#1-20).
+- **NEW**: Dread escalation system that tracks player attention, exposes multiplier/decay/radius controls, and feeds a streamer-mode action bar so creators can see how close the fog is to whisper/nightmare/summon, plus helper readouts that explain thresholds (@data/foggy/function/dread/tick.mcfunction#1-9, @data/foggy/function/config/dread/enable.mcfunction#1-3, @data/foggy/function/config/dread/streamer_status.mcfunction#1-1, @data/foggy/function/streamer/dread_status.mcfunction#1-1, @data/foggy/function/dread/status.mcfunction#1-1, @data/foggy/function/dread/thresholds.mcfunction#1-3).
+- **NEW**: Multiplayer fear spread now respects configurable radiuses with close/normal/wide presets so server admins can tailor how quickly dread jumps from player to player while still showing Streamer Mode warnings (@data/foggy/function/multiplayer/shared_fear.mcfunction#1-9, @data/foggy/function/multiplayer/spread_fear_radius_close.mcfunction#1-8, @data/foggy/function/multiplayer/spread_fear_radius_wide.mcfunction#1-8).
+- **IMPROVED**: Initialization routine registers the new dread scoreboards, default tuning values, and a v3 welcome message while keeping pack metadata synced for `pack_format` 48 deployments (@data/foggy/function/load.mcfunction#1-57, @pack.mcmeta#1-7).
+
 ### v2.0.0 - MAJOR UPDATE
 - **NEW**: Enhanced jumpscare system with dramatic buildup and flash effects
 - **NEW**: Streamer Mode with visual warnings before jump scares
@@ -159,13 +184,13 @@ Want to see what's going on under the hood?
 
 Got questions? Found a bug? Just want to tell me how much I scared you?
 
-[Discord Server Link]
+[\[Discord Server Link\]](https://discord.gg/6nS2KqxQtj)
 
 ---
 
 ## 📄 License
 
-MIT License. Use it however you want—videos, servers, whatever. Just have fun with it.
+Apache License 2.0
 
 ---
 

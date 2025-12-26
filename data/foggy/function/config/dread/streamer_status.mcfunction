@@ -1,0 +1,1 @@
+tellraw @a [{"score":{"name":"#foggy","objective":"foggy.dread"},"color":"dark_red","bold":true},{"text":" total dread | ","color":"gray"},{"score":{"name":"#foggy","objective":"foggy.player_dread"},"color":"yellow"},{"text":" per player","color":"gray"}]

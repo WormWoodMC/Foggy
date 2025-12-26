@@ -1,0 +1,1 @@
+tellraw @a [{"text":"Foggy dread summary","color":"dark_red","bold":true},{"text":" | ","color":"gray"},{"text":"Total dread: ","color":"gray"},{"score":{"name":"#foggy","objective":"foggy.dread"},"color":"red"},{"text":" | ","color":"gray"},{"text":"Player max dread: ","color":"gray"},{"score":{"name":"@s","objective":"foggy.player_dread"},"color":"yellow"}]

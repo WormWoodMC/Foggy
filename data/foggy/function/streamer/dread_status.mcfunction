@@ -1,0 +1,1 @@
+title @a[distance=..32] actionbar [{"text":"Dread ","color":"dark_red","bold":true},{"score":{"name":"#foggy","objective":"foggy.dread"},"color":"red"},{"text":" | ","color":"gray"},{"text":"Player Dread: ","color":"gray"},{"score":{"name":"@s","objective":"foggy.player_dread"},"color":"yellow"}]
