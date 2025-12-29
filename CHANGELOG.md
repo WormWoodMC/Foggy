@@ -6,6 +6,39 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Sem
 
 ---
 
+## [3.1.1] - 2025-12-29
+
+### Added
+- Sleep exclusions: sleeping players are excluded from blindness and all manifestations.
+- Sleep reset: sleeping now fully resets dread/attention and clears active effects and tags.
+- Persistent darkness handling: tag-based system (`foggy.has_darkness`, `foggy.high_fear`) to apply effects once and only remove when conditions are no longer met.
+
+### Changed
+- Replaced visually obtrusive blaze/soul/witch/flash particles with gameplay effects (blindness/slowness) or greatly reduced counts.
+- Prevented seizure-inducing strobing by using long-duration darkness (persistent) instead of reapplying blindness every tick.
+- Attention pulse rebalancing for fair, preventable gameplay:
+  - Night only raises attention when also in darkness.
+  - Rain raises attention only when in darkness/outdoors.
+  - Underground raises attention only in darkness.
+  - Holding light now reduces attention more strongly (both hands rewarded).
+  - Low health attention gain reduced; scales gently with lower health.
+- Amplify behavior refactor: no repeated auto-escalation. Uses `foggy.amplified` tag to trigger once; clears when intensity drops. Tier 4 force now requires extreme intensity.
+- Tier ranges reorganized for clarity and progression: Tier 1 (15–35), Tier 2 (36–60), Tier 3 (61–80), Tier 4 (81–100).
+
+### Fixed
+- Blindness reapplication causing strobing and potential health risks; replaced with persistent darkness and clean removal logic.
+- Sleep did not reliably stop effects; now properly prevents and resets.
+- Particle clutter creating visual obstruction; removed or minimized across manifestations and multiplayer effects.
+
+### Removed
+- `soul_flame` and other heavy particle visuals from amplification and jumpscares.
+- Flash/witch particle bursts during jumpscares in favor of effect-based cues.
+
+### Technical Notes
+- Long-duration darkness applied once; removal when attention < 50 or when holding a torch.
+- New/updated tags: `foggy.has_darkness`, `foggy.high_fear`, `foggy.amplified` cleared on reset.
+- Manifestation selection excludes sleeping players (`SleepTimer` NBT check).
+
 ## [3.1.0] - 2025-12-29
 
 ### Fixed
