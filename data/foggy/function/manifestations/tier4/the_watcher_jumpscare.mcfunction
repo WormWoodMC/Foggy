@@ -3,18 +3,17 @@ execute if score #foggy foggy.volume matches 50 as @e[tag=foggy.watcher,limit=1,
 execute if score #foggy foggy.volume matches 100 as @e[tag=foggy.watcher,limit=1,sort=nearest] at @s run playsound minecraft:entity.enderman.scream master @a[distance=..32] ~ ~ ~ 1 0.3
 execute if score #foggy foggy.volume matches 200 as @e[tag=foggy.watcher,limit=1,sort=nearest] at @s run playsound minecraft:entity.enderman.scream master @a[distance=..32] ~ ~ ~ 1.5 0.3
 
-# Enhanced flash effect with multiple stages
+# Enhanced flash effect with multiple stages - capped at 1 second
 effect give @a[distance=..32] minecraft:blindness 1 1 true
 schedule function foggy:manifestations/tier4/the_watcher_flash 1t
 
-# Dramatic screen shake simulation
-execute as @a[distance=..32] at @s run tp @s ~ ~5 ~ ~10 ~
+# Dramatic screen shake simulation - reduced intensity, 2 second max
+execute as @a[distance=..32] at @s run tp @s ~ ~3 ~ ~5 ~
 schedule function foggy:manifestations/tier4/screen_shake_recovery 10t
 
-# Enhanced particle effects for visual impact
-execute as @e[tag=foggy.watcher,limit=1,sort=nearest] at @s run particle minecraft:angry_villager ~ ~1 ~ 0.5 0.5 0.5 1 50 force
-execute as @e[tag=foggy.watcher,limit=1,sort=nearest] at @s run particle minecraft:soul ~ ~1 ~ 1 1 1 1 30 force
-execute as @e[tag=foggy.watcher,limit=1,sort=nearest] at @s run particle minecraft:witch ~ ~ ~ 0.8 0.8 0.8 1 20 force
+# Enhanced scare effects - blindness and slowness instead of particles
+effect give @a[distance=..32] minecraft:blindness 3 0 true
+effect give @a[distance=..32] minecraft:slowness 4 1 true
 
 # Enhanced content creator alerts
 execute if score #foggy foggy.streamer_mode matches 1 run title @a[distance=..32] actionbar [{"text":"⚠ JUMPSCARE IN 3... ⚠","color":"red","bold":true}]

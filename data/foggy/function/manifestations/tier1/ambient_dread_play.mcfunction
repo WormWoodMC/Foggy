@@ -1,7 +1,7 @@
-execute store result score @s foggy.cooldown run random value 1800..3600
-execute store result score @s foggy.rng run random value 0..3
-execute store result score @s foggy.hp run random value 0..3
-execute store result score @s foggy.bflicker run random value 0..3
+execute store result score @s foggy.cooldown run random value 2400..3600
+execute store result score @s foggy.rng run random value 0..1
+execute store result score @s foggy.hp run random value 0..0
+execute store result score @s foggy.bflicker run random value 0..0
 
 execute if entity @s[tag=foggy.debug] run title @s actionbar [{"text":"Foggy: Tier 1 (Ambient Dread)","color":"gray"},{"text":" cd=","color":"dark_gray"},{"score":{"name":"@s","objective":"foggy.cooldown"},"color":"white"}]
 
