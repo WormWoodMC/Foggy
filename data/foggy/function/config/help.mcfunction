@@ -1,5 +1,5 @@
-# Help Menu - v2.0.0
-tellraw @a {"text":"=== Foggy v2.0.0 Help ===","color":"gold","bold":true}
+# Help Menu - v3.1.0
+tellraw @a {"text":"=== Foggy v3.1.0 Help ===","color":"gold","bold":true}
 tellraw @a {"text":"","color":"gray"}
 tellraw @a {"text":"Quick Commands:","color":"yellow","bold":true}
 tellraw @a [{"text":"• /function foggy:config","color":"gray"},{"text":" - Open configuration menu","color":"dark_gray"}]

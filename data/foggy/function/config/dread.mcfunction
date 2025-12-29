@@ -1,4 +1,4 @@
-# Foggy Dread Controls - v3.0.0
+# Foggy Dread Controls - v3.1.0
 # Usage: /function foggy:config/dread
 
 tellraw @a {"text":"=== Dread Controls ===","color":"dark_red","bold":true}

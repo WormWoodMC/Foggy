@@ -28,6 +28,7 @@ scoreboard objectives add foggy.dread_enabled dummy
 scoreboard objectives add foggy.dread_multiplier dummy
 scoreboard objectives add foggy.dread_decay dummy
 scoreboard objectives add foggy.fear_spread_radius dummy
+scoreboard objectives add foggy.attn_tick dummy
 
 # Initialize v3.0.0 settings
 scoreboard players set #foggy foggy.enabled 1
@@ -48,9 +49,10 @@ scoreboard players set #foggy foggy.dread_enabled 1
 scoreboard players set #foggy foggy.dread_multiplier 2
 scoreboard players set #foggy foggy.dread_decay 1
 scoreboard players set #foggy foggy.fear_spread_radius 8
+scoreboard players set #foggy foggy.attn_tick 0
 
-# Display welcome message for v3.0.0
-tellraw @a [{"text":"⚠","color":"red"},{"text":" Foggy v3.0.0 ","color":"dark_red","bold":true},{"text":"has been loaded! ","color":"gray"},{"text":"Type /function foggy:config to customize","color":"dark_gray"}]
+# Display welcome message for v3.1.0
+tellraw @a [{"text":"⚠","color":"red"},{"text":" Foggy v3.1.0 ","color":"dark_red","bold":true},{"text":"has been loaded! ","color":"gray"},{"text":"Type /function foggy:config to customize","color":"dark_gray"}]
 
 # Run version compatibility check
 function foggy:version_check
