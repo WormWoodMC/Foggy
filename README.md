@@ -7,7 +7,7 @@
 **An intelligent horror experience that adapts to player behavior**
 
 [![Download](https://img.shields.io/badge/Download-Planet%20Minecraft-green)](https://www.planetminecraft.com/data-pack/foggy-6804671/)
-[![Version](https://img.shields.io/badge/Version-3.1.0-blue)](https://minecraft.net)
+[![Version](https://img.shields.io/badge/Version-3.1.1-blue)](https://minecraft.net)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-brightgreen)](https://minecraft.net)
 [![License](https://img.shields.io/badge/License-Apache%202.0-purple)](LICENSE)
 
