@@ -1,5 +1,6 @@
 execute if score #foggy foggy.enabled matches 1 run scoreboard players add #foggy foggy.timer 1
 execute if score #foggy foggy.enabled matches 1 run scoreboard players add #foggy foggy.attn_tick 1
+execute if score #foggy foggy.enabled matches 1 run scoreboard players add #foggy foggy.man_tick 1
 
 execute if score #foggy foggy.enabled matches 1 run function foggy:blindness/tick
 execute if score #foggy foggy.enabled matches 1 run function foggy:attention/tick

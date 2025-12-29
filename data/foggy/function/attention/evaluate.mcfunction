@@ -1,3 +1,6 @@
+# Initialize attention for any new players
+execute as @a[gamemode=!creative,gamemode=!spectator] unless score @s foggy.attention matches -2147483648.. run scoreboard players set @s foggy.attention 0
+
 # Runs all attention pulses and resets the attention tick counter
 function foggy:attention/darkness_pulse
 function foggy:attention/campfire_pulse

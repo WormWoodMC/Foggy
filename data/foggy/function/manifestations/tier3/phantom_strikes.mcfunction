@@ -1,4 +1,4 @@
-execute store result score @s foggy.cooldown run random value 900..1800
+execute store result score @s foggy.cooldown run random value 3600..4800
 
 execute if entity @s[tag=foggy.debug] run title @s actionbar [{"text":"Foggy: Tier 3 (Phantom Strikes)","color":"gray"},{"text":" cd=","color":"dark_gray"},{"score":{"name":"@s","objective":"foggy.cooldown"},"color":"white"}]
 

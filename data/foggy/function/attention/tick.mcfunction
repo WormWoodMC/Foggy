@@ -1,5 +1,8 @@
 execute as @a[gamemode=!creative,gamemode=!spectator] run function foggy:attention/sleep_reset
 
+# Initialize attention for new players
+execute as @a[gamemode=!creative,gamemode=!spectator] unless score @s foggy.attention matches -2147483648.. run scoreboard players set @s foggy.attention 0
+
 # Evaluate attention pulses every ~0.5s (10 ticks)
 execute if score #foggy foggy.attn_tick matches 10 run function foggy:attention/evaluate
 

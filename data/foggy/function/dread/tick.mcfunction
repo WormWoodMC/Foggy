@@ -1,3 +1,6 @@
+# Initialize player dread for anyone who doesn't have a score
+execute as @a[gamemode=!creative,gamemode=!spectator] unless score @s foggy.player_dread matches -2147483648.. run scoreboard players set @s foggy.player_dread 0
+
 # Reset total dread counter
 scoreboard players set #foggy foggy.dread 0
 
