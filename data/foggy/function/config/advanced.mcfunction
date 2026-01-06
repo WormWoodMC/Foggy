@@ -11,6 +11,6 @@ tellraw @a [{"text":"• Shared Cooldowns: ","color":"gray"},{"text":"DISABLED",
 tellraw @a {"":"","color":"gray"}
 tellraw @a {"text":"Statistics:","color":"yellow","bold":true}
 tellraw @a [{"text":"• Jumpscares Triggered: ","color":"gray"},{"score":{"name":"#foggy","objective":"foggy.jumpscare_count"},"color":"white"}]
-tellraw @a [{"text":"• Current Version: ","color":"gray"},{"text":"v3.1.0","color":"white"}]
+tellraw @a [{"text":"• Current Version: ","color":"gray"},{"text":"v3.2.0","color":"white"}]
 tellraw @a {"":"","color":"gray"}
 tellraw @a [{"text":"[← Back to Main Config]","color":"green","hoverEvent":{"action":"show_text","value":{"text":"Click, then press Enter"}},"clickEvent":{"action":"suggest_command","value":"/function foggy:config"}}]

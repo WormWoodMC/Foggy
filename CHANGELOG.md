@@ -6,6 +6,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Sem
 
 ---
 
+
+## [3.2.0] - 2026-01-05
+
+### Added
+- New presets under `data/foggy/function/config` to make `Streamer Mode`, `Intensity`, and `Volume` easier to toggle for live streams.
+- Small performance-oriented helper functions to reduce repeated work on the tick path.
+
+### Changed
+- Consolidated several attention checks into a single evaluation step to lower per-tick CPU overhead (noticeable on low-end servers).
+- Smoothed manifestation selection so single players are less likely to be targeted repeatedly; better fairness in multiplayer groups.
+
+### Fixed
+- Resolved a rare timing issue where attention pulses could be skipped under heavy load, which sometimes delayed manifestation scheduling.
+- Improved multiplayer sync for shared dread propagation and cooldown clearing.
+
+### Technical notes
+- No user-facing configuration keys were removed; presets only add convenience wrappers.
+- If you run into unusual behavior after updating, run `/function foggy:config/stats` and `/function foggy:debug/dread_debug` for diagnostic output.
+
+
+
 ## [3.1.1] - 2025-12-29
 
 ### Added

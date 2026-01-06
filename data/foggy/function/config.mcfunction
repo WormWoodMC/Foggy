@@ -1,7 +1,7 @@
-# Foggy Configuration Menu - v3.1.0
+# Foggy Configuration Menu - v3.2.0
 # Usage: /function foggy:config
 
-tellraw @a {"text":"=== Foggy v3.1.0 Configuration ===","color":"gold","bold":true}
+tellraw @a {"text":"=== Foggy v3.2.0 Configuration ===","color":"gold","bold":true}
 tellraw @a {"text":"Intensity: ","color":"gray"} 
 tellraw @a [{"text":"[Low] ","color":"green","hoverEvent":{"action":"show_text","value":{"text":"Click to suggest command"}},"clickEvent":{"action":"suggest_command","value":"/function foggy:config/intensity/low"}},{"text":"[Medium] ","color":"yellow","hoverEvent":{"action":"show_text","value":{"text":"Click to suggest command"}},"clickEvent":{"action":"suggest_command","value":"/function foggy:config/intensity/medium"}},{"text":"[High] ","color":"red","hoverEvent":{"action":"show_text","value":{"text":"Click to suggest command"}},"clickEvent":{"action":"suggest_command","value":"/function foggy:config/intensity/high"}}]
 tellraw @a {"":""}

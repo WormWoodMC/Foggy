@@ -31,7 +31,7 @@ scoreboard objectives add foggy.fear_spread_radius dummy
 scoreboard objectives add foggy.attn_tick dummy
 scoreboard objectives add foggy.man_tick dummy
 
-# Initialize v3.1.1 settings
+# Initialize v3.2.0 settings
 scoreboard players set #foggy foggy.enabled 1
 scoreboard players set #foggy foggy.blindness_enabled 1
 scoreboard players set #foggy foggy.manifestations_enabled 1
@@ -69,8 +69,8 @@ execute as @a run scoreboard players set @s foggy.hp 20
 execute as @a run scoreboard players set @s foggy.jumpscare_count 0
 execute as @a run scoreboard players set @s foggy.rng 0
 
-# Display welcome message for v3.1.1
-tellraw @a [{"text":"⚠","color":"red"},{"text":" Foggy v3.1.1 ","color":"dark_red","bold":true},{"text":"has been loaded! ","color":"gray"},{"text":"Type /function foggy:config to customize","color":"dark_gray"}]
+# Display welcome message for v3.2.0
+tellraw @a [{"text":"⚠","color":"red"},{"text":" Foggy v3.2.0 ","color":"dark_red","bold":true},{"text":"has been loaded! ","color":"gray"},{"text":"Type /function foggy:config to customize","color":"dark_gray"}]
 
 # Run version compatibility check
 function foggy:version_check
