@@ -6,7 +6,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Sem
 
 ---
 
-## [3.1.1] - 2025-12-29
+## [4.0.0] - 2026-01-11
+
+### Added
+- Ambient Events: a set of non-lethal environmental effects (creaks, distant footsteps, subtle rustling) to enhance atmospheric tension.
+- Echo Whispers: rare, directional ambient audio cues that are cosmetic and configurable.
+- Ritual Bell: a new interaction—ring a bell three times within a short window to apply a temporary attention reduction; includes a cooldown to prevent abuse.
+- Configuration toggles for Ambient Events, Echo Whispers, and Ritual Bell integrated into the configuration menu.
+
+### Changed
+- Manifestation pacing and dread progression adjusted to improve playability and provide clearer reaction windows for players.
+- Jumpscare behavior now issues gentle pre-warnings and includes per-player throttling to reduce repeat exposure.
+- Default intensity and volume presets rebalanced for an approachable out-of-the-box experience.
+
+### Fixed
+- Prevented instantaneous escalation to high-tier manifestations in edge cases.
+- Resolved residual tag states that could block proper reset of manifestations on player respawn.
+
+### Notes
+- All new features are configurable through the existing configuration menu (`/function foggy:config`). Default settings prioritize a balanced experience.
+- Ambient Events and Echo Whispers are cosmetic and do not directly alter player health or inventory.
+
+### Migration and Quick Start
+- No migration is required. After updating, run `/reload` to apply changes.
+- Useful commands for verification:
+
+```bash
+/function foggy:config
+/function foggy:debug/dread_debug
+```
+
+---
 
 ### Added
 - Sleep exclusions: sleeping players are excluded from blindness and all manifestations.

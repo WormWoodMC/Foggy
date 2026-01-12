@@ -137,153 +137,104 @@ Everything's in there. Click stuff to change settings.
 ### Attention System
 The attention system evaluates player conditions every 10 ticks (0.5 seconds) and adjusts scores based on environmental and behavioral factors:
 
-#### Attention Increases (+)
-| Factor | Increase | Condition |
-|--------|----------|----------|
-| **Darkness** | +1/pulse | Light level ≤ 4 |
-| **Underground** | +1/pulse | Y-coordinate < 50 |
-| **Nighttime** | +1/pulse | Game time 13000-23000 |
-| **Rain/Thunder** | +2/pulse | Weather condition active |
-| **Isolation** | +1/pulse | No players within 32 blocks |
-| **Low Health** | +3/pulse | Health < 6 hearts (12 HP) |
-| **No Light Sources** | +2/pulse | No torches/lanterns in inventory |
+```markdown
+# Foggy — Dynamic horror datapack for Minecraft
 
-#### Attention Decreases (-)
-| Factor | Decrease | Condition |
-|--------|----------|----------|
-| **Bright Light** | -1/pulse | Light level ≥ 12 |
-| **Holding Light** | -1/pulse | Torch/lantern in hand |
-| **Near Campfire** | -2/pulse | Within 1 block of campfire |
-| **Near Players** | -1/pulse | Other players within 16 blocks |
+Foggy is a configurable horror datapack that responds to player behavior and environmental conditions. It tracks an "attention" value per player that can escalate into a shared "dread" state, triggering progressively severe manifestations as values rise.
 
-Attention score is clamped between 0-100.
+Version: 4.0.0
+Requires: Minecraft Java 1.21.1 or newer
 
-### Dread Accumulation
-When attention ≥ 40, player dread increases by the configured multiplier each tick. When attention < 40, dread decays at the configured rate. Total dread is the sum of all player dread values.
+----
 
-#### Dread Thresholds
-| Level | Dread Range | Effects |
-|-------|-------------|----------|
-| **Whisper** | 40-79 | Tier 1 manifestations: ambient sounds, minor item movement |
-| **Nightmare** | 80-119 | Tier 2-3 manifestations: environmental manipulation, false sounds, phantom damage |
-| **Summon** | 120+ | Tier 3-4 manifestations: life drain, displacement, **The Watcher** |
+## Overview
 
-### Manifestation Tiers
+Foggy monitors player state (light level, health, location, weather, proximity to other players) and converts these inputs into two primary metrics:
 
-#### Tier 1: Unease (Attention 10-30)
-- **Ambient Dread**: Eerie sound effects and atmospheric tension
-- **Item Displacement**: Items shift positions in inventory
-- **Cooldown**: 40-80 seconds
+- `attention`: a short-term measure of player vulnerability (0–100).
+- `dread`: a longer-term accumulation derived from attention that can trigger manifestations when thresholds are reached.
 
-#### Tier 2: Disturbance (Attention 31-60)
-- **Door Manipulation**: Doors open/close autonomously
-- **Light Snuffing**: Torches and light sources extinguish
-- **Cold Touch**: Slowness and visual distortion effects
-- **Cooldown**: 60-120 seconds
+Major systems:
+- Attention and dread evaluation
+- Four-tier manifestation system (Tier 1–4)
+- Configurable intensity, volume, and multiplayer behavior
+- Streamer mode for pre-warning jumpscares and action-bar visibility
 
-#### Tier 3: Terror (Attention 61-85)
-- **Phantom Strikes**: Invisible damage sources
-- **Inventory Corruption**: Food items transform into suspicious stew
-- **False Sounds**: Deceptive audio cues (mob sounds, footsteps)
-- **Cooldown**: 80-160 seconds
+## Installation
 
-#### Tier 4: Nightmare (Attention 86-100)
-- **Life Drain**: Gradual health loss with visual effects
-- **Displacement**: Temporary teleportation to nearby locations
-- **Suffocation**: Temporary breathing restriction
-- **The Watcher**: Ultimate manifestation with jumpscare sequence
-- **Cooldown**: 120-240 seconds
+1. Ensure Minecraft Java 1.21.1 or later.
+2. Place the `Foggy` folder in your world's `datapacks` directory.
+3. Load the world and run `/reload`.
+4. Open configuration with `/function foggy:config`.
 
-### Multiplayer Mechanics
-When fear spread is enabled, players within the configured radius share dread values, causing cascading terror as groups experience synchronized manifestations. Shared cooldowns can be enabled to prevent manifestation spam in large groups.
+For servers: stop the server, install the datapack, then start the server and verify with `/function foggy:config/stats`.
 
----
+## Configuration
 
-## 📸 Media & Community Content
+Use `/function foggy:config` to access the configuration menu. Available settings include:
 
-<div align="center">
+- Intensity presets (Low / Medium / High)
+- Volume presets (Quiet / Normal / Loud)
+- Streamer mode (enable/disable)
+- Dread multiplier and decay settings
+- Multiplayer fear spread radius and shared cooldowns
+- v4.0.0 toggles: Ambient Events, Echo Whispers, Ritual Bell
 
-*We feature exceptional community content! Submit your reaction videos, cinematic captures, or gameplay highlights via Discord.*
+Toggle example:
+```mcfunction
+/function foggy:config/ambient/toggle
+```
 
-</div>
+## Commands and Debugging
+
+Common commands:
+
+```mcfunction
+/function foggy:config
+/function foggy:config/stats
+/function foggy:debug/dread_debug
+```
+
+Debugging:
+
+```mcfunction
+/tag @s add foggy.debug     # enable debug output for the current player
+/tag @s remove foggy.debug  # disable debug output
+```
+
+## Mechanics (summary)
+
+- Attention is evaluated every 10 ticks and clamped between 0 and 100.
+- When attention ≥ 40, dread accumulates according to the configured multiplier; when attention < 40, dread decays at the configured rate.
+- Manifestation tiers are selected based on attention and dread thresholds and are subject to cooldowns to avoid oversaturation.
+
+Refer to `data/foggy/function` for the full implementation and fine-grained behavior.
+
+## v4.0.0 Highlights
+
+- Ambient Events: subtle, cosmetic environmental audio to improve atmosphere.
+- Echo Whispers: rare directional ambient audio cues, cosmetic and configurable.
+- Ritual Bell: a short ritual interaction that reduces attention with a cooldown.
+- Configuration toggles for the new features are available in the config menu.
 
 ## Troubleshooting
 
-**Nothing's happening**
-- Make sure you're on 1.21.1 or newer
-- Check the datapack is in the right folder
-- Run `/reload`
-- Type `/function foggy:config/stats` to verify it loaded
-- You need to be in Survival (doesn't affect Creative/Spectator)
+If features are not active:
 
-**Too scary / giving me anxiety**
-- `/function foggy:config/intensity/low` - cuts events in half
-- `/function foggy:config/streamer/enable` - warns before jumpscares
-- `/function foggy:config/volume/quiet` - quieter sounds
-- Limit max tier to 1 or 2 via `/function foggy:config/manifestation/max_tier`
+1. Confirm the datapack is installed and active with `/function foggy:config/stats`.
+2. Run `/reload` after installing or updating the datapack.
+3. Ensure you are not in Creative or Spectator mode (those modes are excluded from attention evaluation).
 
-**Server lag / TPS drops**
-- Lower intensity: `/function foggy:config/intensity/low`
-- Turn off fear spread: `/function foggy:config/multiplayer/fear_spread`
-- Fewer players helps
-- Make sure server has enough RAM (4GB+ for 5+ players)
+Performance tips:
+- Lower the intensity preset to reduce event frequency.
+- Disable multiplayer fear spread on high-player servers.
 
-**Conflicts with other datapacks**
-- Check if they use scoreboards starting with `foggy.*`
-- Needs pack_format 48 (1.21.1+)
-- Try running Foggy alone to isolate the issue
+## Contributing and License
 
-### Debug mode
-```mcfunction
-/tag @s add foggy.debug
-```
+Contributions and bug reports are welcome. See `LICENSE` for license terms (Apache 2.0).
+
+For community discussion and support, use the project Discord.
+
+----
+``` 
 Shows attention, tier info, cooldowns, etc. Remove with:
-```mcfunction
-/tag @s remove foggy.debug
-```
-
-More debugging:
-```mcfunction
-/function foggy:debug/dread_debug    # full dread system info
-/function foggy:debug/show_state     # all scoreboards
-/function foggy:config/stats         # general stats
-```
-
-## Version History
-
-See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
-
-**v3.1.0** (Dec 2025) - Fixed critical dread system bugs, added missing functions  
-**v3.0.0** (Dec 2025) - Added dread system and config overhaul  
-**v2.0.0** (2024) - Jumpscare system, streamer mode, multiplayer features  
-**v1.0.0** (2024) - Initial release
-
-## Community
-
-Join the Discord for support, bug reports, and sharing clips: https://discord.gg/6nS2KqxQtj
-
-### Contributing
-Found a bug? Want a feature? Open an issue or hit up Discord.
-
-### Credits
-Developed by WormWoodMC  
-Pack format 48 (Minecraft 1.21.1+)  
-Current version: v3.1.0
-
-## License
-
-Apache License 2.0 - see [LICENSE](LICENSE)
-
-You can use it, modify it, redistribute it. Just give credit.
-
----
-
-If you like the pack, leave a diamond on [Planet Minecraft](https://www.planetminecraft.com/data-pack/foggy-6804671/) or share your reaction videos.
-
-Don't play alone. Or do, if you're brave.
-
-<div align="center">
-
-🌫️ **The fog is always watching** 🌫️
-
-</div>
