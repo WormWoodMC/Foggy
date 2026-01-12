@@ -5,6 +5,8 @@ execute if score #foggy foggy.enabled matches 1 run scoreboard players add #fogg
 execute if score #foggy foggy.enabled matches 1 run function foggy:blindness/tick
 execute if score #foggy foggy.enabled matches 1 run function foggy:attention/tick
 execute if score #foggy foggy.enabled matches 1 run function foggy:bell/tick
+execute if score #foggy foggy.enabled matches 1 if score #foggy foggy.ambient_enabled matches 1 run function foggy:ambient/tick
+execute if score #foggy foggy.enabled matches 1 if score #foggy foggy.echo_enabled matches 1 run function foggy:echo/tick
 execute if score #foggy foggy.enabled matches 1 run function foggy:manifestations/tick
 execute if score #foggy foggy.enabled matches 1 run function foggy:dread/tick
 execute if score #foggy foggy.enabled matches 1 if score #foggy foggy.fear_spread_enabled matches 1 run function foggy:multiplayer/shared_fear

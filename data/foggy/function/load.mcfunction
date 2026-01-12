@@ -31,6 +31,14 @@ scoreboard objectives add foggy.fear_spread_radius dummy
 scoreboard objectives add foggy.attn_tick dummy
 scoreboard objectives add foggy.man_tick dummy
 
+# New v4.0.0 objectives
+scoreboard objectives add foggy.ambient_enabled dummy
+scoreboard objectives add foggy.ritual_count dummy
+scoreboard objectives add foggy.ritual_timer dummy
+scoreboard objectives add foggy.ritual_cooldown dummy
+scoreboard objectives add foggy.echo_enabled dummy
+scoreboard objectives add foggy.ritual_enabled dummy
+
 # Initialize v3.1.1 settings
 scoreboard players set #foggy foggy.enabled 1
 scoreboard players set #foggy foggy.blindness_enabled 1
@@ -53,6 +61,14 @@ scoreboard players set #foggy foggy.fear_spread_radius 8
 scoreboard players set #foggy foggy.attn_tick 0
 scoreboard players set #foggy foggy.man_tick 0
 
+# Initialize v4.0.0 settings
+scoreboard players set #foggy foggy.ambient_enabled 1
+scoreboard players set #foggy foggy.ritual_count 0
+scoreboard players set #foggy foggy.ritual_timer 0
+scoreboard players set #foggy foggy.ritual_cooldown 0
+scoreboard players set #foggy foggy.echo_enabled 1
+scoreboard players set #foggy foggy.ritual_enabled 1
+
 # Initialize all online player scores on load - CRITICAL FIX
 # This ensures every player who loads the world gets base scores immediately
 execute as @a run scoreboard players set @s foggy.attention 0
@@ -68,6 +84,11 @@ execute as @a run scoreboard players set @s foggy.sleep_prev 0
 execute as @a run scoreboard players set @s foggy.hp 20
 execute as @a run scoreboard players set @s foggy.jumpscare_count 0
 execute as @a run scoreboard players set @s foggy.rng 0
+execute as @a run scoreboard players set @s foggy.ritual_count 0
+execute as @a run scoreboard players set @s foggy.ritual_timer 0
+execute as @a run scoreboard players set @s foggy.ritual_cooldown 0
+execute as @a run scoreboard players set @s foggy.echo_enabled 1
+execute as @a run scoreboard players set @s foggy.ritual_enabled 1
 
 # Display welcome message for v3.1.1
 tellraw @a [{"text":"⚠","color":"red"},{"text":" Foggy v3.1.1 ","color":"dark_red","bold":true},{"text":"has been loaded! ","color":"gray"},{"text":"Type /function foggy:config to customize","color":"dark_gray"}]

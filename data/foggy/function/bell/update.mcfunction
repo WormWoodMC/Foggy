@@ -5,3 +5,7 @@ unless score @s foggy.bell_mute matches -2147483648.. run scoreboard players set
 
 execute unless score @s foggy.bell = @s foggy.bell_prev run scoreboard players set @s foggy.bell_mute 1200
 scoreboard players operation @s foggy.bell_prev = @s foggy.bell
+
+# Detect ring events for ritual: only if ritual feature enabled
+execute if score #foggy foggy.ritual_enabled matches 1 unless score @s foggy.bell = @s foggy.bell_prev run scoreboard players add @s foggy.ritual_count 1
+execute if score #foggy foggy.ritual_enabled matches 1 unless score @s foggy.bell = @s foggy.bell_prev run scoreboard players set @s foggy.ritual_timer 200
