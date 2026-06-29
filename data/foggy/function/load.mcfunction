@@ -31,7 +31,6 @@ scoreboard objectives add foggy.fear_spread_radius dummy
 scoreboard objectives add foggy.attn_tick dummy
 scoreboard objectives add foggy.man_tick dummy
 
-# New v4.0.0 objectives
 scoreboard objectives add foggy.ambient_enabled dummy
 scoreboard objectives add foggy.ritual_count dummy
 scoreboard objectives add foggy.ritual_timer dummy
@@ -39,7 +38,14 @@ scoreboard objectives add foggy.ritual_cooldown dummy
 scoreboard objectives add foggy.echo_enabled dummy
 scoreboard objectives add foggy.ritual_enabled dummy
 
-# Initialize v3.1.1 settings
+# v4.2.0 objectives
+scoreboard objectives add foggy.safe_mode dummy
+scoreboard objectives add foggy.p_jumpscares dummy
+scoreboard objectives add foggy.p_max_attn dummy
+scoreboard objectives add foggy.p_rituals dummy
+scoreboard objectives add foggy.p_watcher_seen dummy
+scoreboard objectives add foggy.attn_prev dummy
+
 scoreboard players set #foggy foggy.enabled 1
 scoreboard players set #foggy foggy.blindness_enabled 1
 scoreboard players set #foggy foggy.manifestations_enabled 1
@@ -47,7 +53,7 @@ scoreboard players set #foggy foggy.timer 0
 scoreboard players set #foggy foggy.intensity 100
 scoreboard players set #foggy foggy.volume 100
 scoreboard players set #foggy foggy.jumpscare_count 0
-scoreboard players set #foggy foggy.version 48
+scoreboard players set #foggy foggy.version 101
 scoreboard players set #foggy foggy.max_tier 4
 scoreboard players set #foggy foggy.fear_spread_enabled 1
 scoreboard players set #foggy foggy.shared_cooldowns_enabled 0
@@ -61,7 +67,6 @@ scoreboard players set #foggy foggy.fear_spread_radius 8
 scoreboard players set #foggy foggy.attn_tick 0
 scoreboard players set #foggy foggy.man_tick 0
 
-# Initialize v4.0.0 settings
 scoreboard players set #foggy foggy.ambient_enabled 1
 scoreboard players set #foggy foggy.ritual_count 0
 scoreboard players set #foggy foggy.ritual_timer 0
@@ -69,8 +74,9 @@ scoreboard players set #foggy foggy.ritual_cooldown 0
 scoreboard players set #foggy foggy.echo_enabled 1
 scoreboard players set #foggy foggy.ritual_enabled 1
 
-# Initialize all online player scores on load - CRITICAL FIX
-# This ensures every player who loads the world gets base scores immediately
+# v4.2.0 initial values
+scoreboard players set #foggy foggy.safe_mode 0
+
 execute as @a run scoreboard players set @s foggy.attention 0
 execute as @a run scoreboard players set @s foggy.player_dread 0
 execute as @a run scoreboard players set @s foggy.cooldown 0
@@ -90,8 +96,13 @@ execute as @a run scoreboard players set @s foggy.ritual_cooldown 0
 execute as @a run scoreboard players set @s foggy.echo_enabled 1
 execute as @a run scoreboard players set @s foggy.ritual_enabled 1
 
-# Display welcome message for v3.1.1
-tellraw @a [{"text":"⚠","color":"red"},{"text":" Foggy v3.1.1 ","color":"dark_red","bold":true},{"text":"has been loaded! ","color":"gray"},{"text":"Type /function foggy:config to customize","color":"dark_gray"}]
+# v4.2.0 player init
+execute as @a run scoreboard players set @s foggy.p_jumpscares 0
+execute as @a run scoreboard players set @s foggy.p_max_attn 0
+execute as @a run scoreboard players set @s foggy.p_rituals 0
+execute as @a run scoreboard players set @s foggy.p_watcher_seen 0
+execute as @a run scoreboard players set @s foggy.attn_prev 0
 
-# Run version compatibility check
+tellraw @a [{text:"⚠",color:"red"},{text:" Foggy v4.2.0 ",color:"dark_red",bold:true},{text:"loaded! ",color:"gray"},{text:"Type /function foggy:config",color:"dark_gray"}]
+
 function foggy:version_check

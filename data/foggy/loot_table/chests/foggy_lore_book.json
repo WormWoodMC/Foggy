@@ -1,0 +1,30 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:written_book_content": {
+                  "title": "Torn Field Notes",
+                  "author": "unknown",
+                  "pages": [
+                    "{\"text\":\"Day 1 — I should not have come here. The fog rolled in before sunset, thick as wool. It moves wrong. It watches. I felt something brush my shoulder in the dark. There was no one there. I am writing this by torchlight because the dark feels heavier now.\"}",
+                    "{\"text\":\"Day 3 — The bells work. I rang the old iron bell at the chapel ruin and the fog thinned for a moment. Something screamed far off. I think it was angry. Three rings seemed to do it. Mark this: the bell is not just a tool. It is a weapon.\"}",
+                    "{\"text\":\"Day 7 — It has a shape now. I saw it between the trees — tall, wrong angles, watching. When I lit a lantern it stepped back. Light hurts it. Soul sand seems to calm the air around it. I collected some. The fog does not like the blue fire.\"}",
+                    "{\"text\":\"Final entry — If you read this, know: the fog is not weather. It is hungry. Do not let it find you in the dark. Stay in light. Ring the bell. And if you see the eyes — run. — C\"}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

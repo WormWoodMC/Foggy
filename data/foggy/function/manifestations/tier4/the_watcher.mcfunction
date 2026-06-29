@@ -1,12 +1,18 @@
 execute store result score @s foggy.cooldown run random value 6000..9000
+tag @s add foggy.watcher_target
 
-execute if entity @s[tag=foggy.debug] run title @s actionbar [{"text":"Foggy: Tier 4 (The Watcher)","color":"gray"},{"text":" cd=","color":"dark_gray"},{"score":{"name":"@s","objective":"foggy.cooldown"},"color":"white"}]
+execute if entity @s[tag=foggy.debug] run title @s actionbar [{text:"Foggy: Tier 4 (The Watcher)",color:"gray"},{text:" cd=",color:"dark_gray"},{score:{name:"@s",objective:"foggy.cooldown"},color:"white"}]
 
-# Jumpscare buildup
-playsound minecraft:entity.elder_guardian.curse ambient @s ~ ~ ~ 0.1 0.5
-schedule function foggy:manifestations/tier4/the_watcher_jumpscare 2s
+execute if score #foggy foggy.streamer_mode matches 1 run tellraw @s [{text:"[Streamer] Something is coming...",color:"gold"}]
 
-execute anchored eyes positioned ^ ^ ^-12 run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoGravity:1b,Invulnerable:1b,Small:1b,CustomName:'{"text":"..."}',Tags:["foggy.watcher"]}
-execute as @e[tag=foggy.watcher,limit=1,sort=nearest] at @s facing entity @p[distance=..64,sort=nearest] eyes run tp @s ~ ~ ~ ~ ~
-effect give @e[tag=foggy.watcher,limit=1,sort=nearest] minecraft:glowing 5 0 true
-schedule function foggy:manifestations/tier4/the_watcher_cleanup 5s
+execute if score #foggy foggy.volume matches 50 run playsound minecraft:entity.elder_guardian.curse ambient @s ~ ~ ~ 0.05 0.5
+execute if score #foggy foggy.volume matches 100 run playsound minecraft:entity.elder_guardian.curse ambient @s ~ ~ ~ 0.1 0.5
+execute if score #foggy foggy.volume matches 200 run playsound minecraft:entity.elder_guardian.curse ambient @s ~ ~ ~ 0.15 0.5
+execute if score #foggy foggy.streamer_mode matches 1 run title @s actionbar [{text:"Unknown presence approaching...",color:"dark_red"}]
+
+schedule function foggy:manifestations/tier4/the_watcher_phase2 20t
+schedule function foggy:manifestations/tier4/the_watcher_phase3 40t
+schedule function foggy:manifestations/tier4/the_watcher_jumpscare 60t
+
+scoreboard players add #foggy foggy.jumpscare_count 1
+scoreboard players add @s foggy.p_jumpscares 1

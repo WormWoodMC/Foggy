@@ -13,4 +13,10 @@ execute if score #foggy foggy.enabled matches 1 if score #foggy foggy.fear_sprea
 execute if score #foggy foggy.enabled matches 1 if score #foggy foggy.streamer_mode matches 1 run function foggy:streamer/dread_status
 execute as @a[scores={foggy.suffocate=1..}] run function foggy:manifestations/tier4/suffocation_tick
 
+execute if score #foggy foggy.enabled matches 1 run function foggy:attention/hint_display
+execute if score #foggy foggy.enabled matches 1 run function foggy:attention/threshold_sounds
+execute if score #foggy foggy.enabled matches 1 run function foggy:attention/soul_sand_pulse
+execute as @a[tag=foggy.watcher_pursuing] run function foggy:manifestations/tier4/the_watcher_pursue_tick
+execute as @a[tag=foggy.debug] run function foggy:debug/overlay_tick
+
 execute if score #foggy foggy.timer matches 1200.. run scoreboard players set #foggy foggy.timer 0

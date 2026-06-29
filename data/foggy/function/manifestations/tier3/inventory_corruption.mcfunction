@@ -1,6 +1,6 @@
 execute store result score @s foggy.cooldown run random value 2400..3600
 
-execute if entity @s[tag=foggy.debug] run title @s actionbar [{"text":"Foggy: Tier 3 (Inventory Corruption)","color":"gray"},{"text":" cd=","color":"dark_gray"},{"score":{"name":"@s","objective":"foggy.cooldown"},"color":"white"}]
+execute if entity @s[tag=foggy.debug] run title @s actionbar [{text:"Foggy: Tier 3 (Inventory Corruption)",color:"gray"},{text:" cd=",color:"dark_gray"},{score:{name:"@s",objective:"foggy.cooldown"},color:"white"}]
 
 playsound minecraft:entity.husk.ambient ambient @s ~ ~ ~ 0.4 0.8
 
@@ -23,3 +23,13 @@ execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:
 
 execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:cooked_mutton run function foggy:manifestations/tier3/corrupt_cooked_mutton
 execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:cooked_mutton run scoreboard players set @s foggy.hp 1
+
+execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:beef run function foggy:manifestations/tier3/corrupt_raw_beef
+execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:beef run scoreboard players set @s foggy.hp 1
+
+execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:chicken run function foggy:manifestations/tier3/corrupt_raw_chicken
+execute if score @s foggy.hp matches 0 if items entity @s container.* minecraft:chicken run scoreboard players set @s foggy.hp 1
+
+execute if score @s foggy.hp matches 0 run scoreboard players set @s foggy.cooldown 0
+execute if score @s foggy.hp matches 0 run playsound minecraft:entity.item.break ambient @s ~ ~ ~ 0.3 1
+execute if score @s foggy.hp matches 0 run title @s actionbar [{text:"Nothing to corrupt...",color:"dark_gray",italic:true}]

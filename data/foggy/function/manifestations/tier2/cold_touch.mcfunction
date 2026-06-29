@@ -1,6 +1,6 @@
-execute store result score @s foggy.cooldown run random value 3600..4800
+execute store result score @s foggy.cooldown run random value 1800..2400
 
-execute if entity @s[tag=foggy.debug] run title @s actionbar [{"text":"Foggy: Tier 2 (Cold Touch)","color":"gray"},{"text":" cd=","color":"dark_gray"},{"score":{"name":"@s","objective":"foggy.cooldown"},"color":"white"}]
+execute if entity @s[tag=foggy.debug] run title @s actionbar [{text:"Foggy: Tier 2 (Cold Touch)",color:"gray"},{text:" cd=",color:"dark_gray"},{score:{name:"@s",objective:"foggy.cooldown"},color:"white"}]
 
 effect give @s minecraft:darkness 1 0 true
 

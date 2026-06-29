@@ -1,7 +1,7 @@
 {
   "pack": {
-    "pack_format": 48,
-    "description": "Foggy v4.0.0 - Dynamic Horror Experience | Player Score Initialization Fixed",
-    "version": "4.0.0"
+    "description": "Foggy v4.2.0 - Dynamic Horror Experience",
+    "min_format": [101, 1],
+    "max_format": [101, 1]
   }
 }

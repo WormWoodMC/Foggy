@@ -1,5 +1,5 @@
 # Final streamer jump notification - Enhanced for v2.0.0
-execute if score #foggy foggy.streamer_mode matches 1 run title @a[distance=..32] actionbar [{"text":"💀 JUMPSCARE NOW! 💀","color":"dark_red","bold":true}]
+execute if score #foggy foggy.streamer_mode matches 1 run title @a[distance=..32] actionbar [{text:"💀 JUMPSCARE NOW! 💀",color:"dark_red",bold:true}]
 
 # Dramatic effect - blindness surge
 effect give @a[distance=..32] minecraft:blindness 2 0 true
